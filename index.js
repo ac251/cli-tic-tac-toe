@@ -34,12 +34,6 @@ const play = async (board, moveNum, players) => {
     initial: '',
   });
   const { coordinates } = move;
-  coordinates.forEach((coordinate, idx) =>{
-    if (!(coordinate > 0) || !(coordinate < 4) || idx > 1) {
-      console.log('please enter coordinates from 1 to 3');
-      play(board, moveNum, players);
-    }
-  })
   for (let i = 0; i < 2; i += 1) {
     const coordinate = coordinates[i];
      if (!(coordinate > 0) || !(coordinate < 4)) {
