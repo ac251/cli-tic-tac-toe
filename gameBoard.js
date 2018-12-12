@@ -1,19 +1,19 @@
-exports.makeBoard() {
+exports.makeBoard = () => {
   const makeRow = () => {
     return [0, 0, 0];
   }
   return [makeRow(), makeRow(), makeRow()];
 };
 
-exports.move(playerChar, row, col, board) {
+exports.move = (playerChar, row, col, board) => {
   if (board[row][col] !== 0) {
-    throw new Error(that space is already taken!)
+    throw new Error('that space is already taken!')
   } else {
     board[row][col] = playerChar;
   }
 };
 
-exports.detectWin(playerChar, board) {
+exports.detectWin = (playerChar, board) => {
   for (let i = 0; i < 3; i += 1) {
     if (board[i].every(item => item === playerChar)) {
       return true;
@@ -31,4 +31,4 @@ exports.detectWin(playerChar, board) {
     otherDiag = board[i][j] === playerChar && otherDiag;
   }
   return oneDiag || otherDiag;
-}
+};
