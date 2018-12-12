@@ -13,6 +13,10 @@ exports.move = (playerChar, row, col, board) => {
   }
 };
 
+exports.possibleMove = (board) => {
+  return board.some(row => row.some(spot => spot === 0));
+}
+
 exports.detectWin = (playerChar, board) => {
   for (let i = 0; i < 3; i += 1) {
     if (board[i].every(item => item === playerChar)) {

@@ -47,6 +47,9 @@ const play = async (board, moveNum, players) => {
       console.log(renderBoard(board));
       console.log(`player ${currentPlayer} wins`);
       return initialPrompt();
+    } else if (!gameBoard.possibleMove(board)) {
+      console.log('it\'s a tie');
+      return initialPrompt();
     } else {
       play(board, moveNum + 1, players);
     }
@@ -62,5 +65,5 @@ const renderBoard = board => {
   return rows.join('\n–––––\n');
 };
 
-initialPrompt();
+initialPrompt().catch(() => process.exit(1));
 
